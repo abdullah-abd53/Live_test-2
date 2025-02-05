@@ -1,0 +1,88 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AddEmployeeScreen(),
+    );
+  }
+}
+
+class AddEmployeeScreen extends StatelessWidget {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
+  final TextEditingController salaryController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Add Employee"),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: false,
+        titleTextStyle: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Name", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+            TextFormField(
+              controller: nameController,
+              decoration: InputDecoration(
+                border: UnderlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 16),
+            Text("Age", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+            TextFormField(
+              controller: ageController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                border: UnderlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 16),
+            Text("Salary", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+            TextFormField(
+              controller: salaryController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                border: UnderlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 32),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  // Add functionality here
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple.shade100,
+                  foregroundColor: Colors.purple,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                ),
+                child: Text("Add Employee"),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
